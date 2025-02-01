@@ -6,7 +6,6 @@ import numpy as np
 from torchvision.models import detection
 import torch
 from torchvision import models
-from io import BytesIO
 import json
 import base64
 

@@ -1,8 +1,7 @@
 streamlit
 pandas
 numpy
-pytorch
+torch
 torchvision
-json
 requests
-sci-kit-learn
+scikit-learn
