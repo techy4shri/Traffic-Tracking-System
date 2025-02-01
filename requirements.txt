@@ -1,0 +1,7 @@
+streamlit
+pandas
+numpy
+pytorch
+torchvision
+json
+base64

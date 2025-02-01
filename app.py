@@ -1,6 +1,4 @@
 import streamlit as st
-import argparse
-import io
 import os
 from PIL import Image
 import cv2
