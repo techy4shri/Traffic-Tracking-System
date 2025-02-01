@@ -4,4 +4,5 @@ numpy
 pytorch
 torchvision
 json
-base64
+requests
+sci-kit-learn
