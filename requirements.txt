@@ -1,4 +1,5 @@
 streamlit
+flask
 pandas
 numpy
 torch
