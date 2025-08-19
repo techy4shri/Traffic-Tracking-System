@@ -1,42 +1,201 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* background container styles */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-video {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1; 
+}
+
+
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  width: 50%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.main-content h1,
+.main-content h2,
+.main-content p {
+  color: #333;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.result-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.15);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.vehicle-item {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.vehicle-item:hover {
+  transform: scale(1.02);
+}
+
+/* footer styles */
+.site-footer {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-center {
   text-align: center;
+  color: #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.footer-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.footer-tagline {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0.2rem 0 0;
+}
+
+.footer-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.footer-icon:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.footer-icon.sponsor {
+  color: #ff6b6b;
+}
+
+.footer-icon.sponsor:hover {
+  color: #ff4757;
+}
+
+/* FileUpload styles */
+.upload-container {
+  width: 60%;
+  align-content: center;
+  padding: 3rem 2rem;
+  background: rgba(240, 240, 240, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-container:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.upload-container p {
+  color: white;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .main-content {
+    padding: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .vehicles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .result-section {
+    padding: 2rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 1024px) {
+  .vehicles-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

@@ -1,34 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import FileUpload from './components/FileUpload/FileUpload'
+import Footer from './components/Footer/Footer'
+import Background from './components/Background/Background'
+import type { ProcessedResult } from './types/common'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [result, setResult] = useState<ProcessedResult | null>(null);
+  const [isProcessing] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app-container">
+      {!isProcessing && <Background />}
+      <main className="main-content">
+        <h1 className="title">Traffic Tracking System</h1>
+        <FileUpload onProcessed={setResult} />
+        {result && (
+          <div className="result-section">
+            <h2>Analysis Results</h2>
+            <p>Vehicles Detected: {result.vehicleCount}</p>
+            <div className="vehicles-grid">
+              {result.vehicleNumbers.map((number, index) => (
+                <p key={index} className="vehicle-item">
+                  Vehicle {index + 1}: {number}
+                </p>
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
+      <Footer />
+    </div>
   )
 }
 
