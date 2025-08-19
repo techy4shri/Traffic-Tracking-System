@@ -37,6 +37,10 @@
 
 .main-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   width: 50%;
   max-width: 1200px;
   margin: 0 auto;
@@ -154,6 +158,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  padding: 2rem;
   gap: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -182,7 +188,11 @@
   }
 
   .title {
+    color: #333;
+    text-align: center;
+    margin: 1rem 0 2rem 0;
     font-size: 2.5rem;
+    width: 100%;
   }
 
   .vehicles-grid {
@@ -198,4 +208,72 @@
   .vehicles-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.floating-side-icon {
+  position: fixed;
+  right: 20px;          /* Or left: 20px; for left side */
+  bottom: 50%;
+  transform: translateY(50%);
+  z-index: 9999;
+  background: #e11d48;
+  color: white;
+  border-radius: 100px;
+  padding: 12px 18px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  gap: 8px;
+  transition: background 0.2s, box-shadow 0.2s;
+  animation: pop-bounce 1.5s infinite;
+}
+
+.floating-side-icon:hover {
+  background: #be185d;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.3);
+}
+
+@keyframes pop-bounce {
+  0%, 100% { transform: translateY(50%) scale(1); }
+  50% { transform: translateY(40%) scale(1.08); }
+}
+
+.floating-github-icon {
+  position: fixed;
+  left: 20px;
+  bottom: 50%;
+  transform: translateY(50%);
+  z-index: 9999;
+  color: white;
+  background: #333;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  gap: 8px;
+  transition: background 0.2s, box-shadow 0.2s;
+  animation: pop-bounce 1.4s infinite;
+}
+.floating-github-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.floating-github-icon span {
+  color: white;
+}
+.floating-github-icon:hover {
+  background: #333;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.3);
+}
+
+@keyframes pop-bounce {
+  0%, 100% { transform: translateY(50%) scale(1); }
+  50% { transform: translateY(40%) scale(1.09); }
 }
