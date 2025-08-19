@@ -4,11 +4,13 @@ const Footer = () => {
   return (
     <footer className="site-footer">
       <div className="footer-left">
-        <a href="https://github.com/techy4shri/Traffic-Tracking-System" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           className="footer-icon">
-          <FaGithub />
+        <a
+          href="https://github.com/techy4shri/Traffic-Tracking-System"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-icon"
+        >
+          <FaGithub size={32} />
         </a>
       </div>
 

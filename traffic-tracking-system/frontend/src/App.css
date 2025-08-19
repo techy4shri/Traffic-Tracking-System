@@ -210,9 +210,10 @@
   }
 }
 
+/*
 .floating-side-icon {
   position: fixed;
-  right: 20px;          /* Or left: 20px; for left side */
+  right: 20px;
   bottom: 50%;
   transform: translateY(50%);
   z-index: 9999;
@@ -277,3 +278,4 @@
   0%, 100% { transform: translateY(50%) scale(1); }
   50% { transform: translateY(40%) scale(1.09); }
 }
+*/

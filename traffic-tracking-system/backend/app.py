@@ -1,23 +1,21 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from werkzeug.utils import secure_filename
-import os
-from api.routes import api_bp
-from config import Config
+# backend/app.py
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from api.routes import router
 
-app = Flask(__name__)
-app.config.from_object(Config)
-CORS(app)
+app = FastAPI(title="Traffic Tracking System")
 
-# Register blueprints
-app.register_blueprint(api_bp, url_prefix='/api')
+# Allow your Vercel frontend to call this API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# Ensure upload directory exists
-os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+@app.get("/health")
+def health():
+    return {"ok": True}
 
-@app.route('/health')
-def health_check():
-    return jsonify({"status": "healthy"})
-
-if __name__ == '__main__':
-    app.run(debug=True)
+app.include_router(router, prefix="/api")
