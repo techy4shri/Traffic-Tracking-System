@@ -1,8 +1,0 @@
-streamlit
-flask
-pandas
-numpy
-torch
-torchvision
-requests
-scikit-learn
