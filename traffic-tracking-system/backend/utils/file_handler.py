@@ -7,7 +7,7 @@ import shutil
 import uuid
 from fastapi import UploadFile, HTTPException
 
-from config import DATA_DIR, TMP_DIR
+from config import TMP_DIR
 
 import cv2
 import numpy as np

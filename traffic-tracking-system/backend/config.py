@@ -60,6 +60,8 @@ settings = Settings()
 
 # Ensure directories exist (create using module-level BASE_DIR)
 MODULE_BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = MODULE_BASE_DIR  # Alias for backward compatibility
+
 # create uploads dir from settings
 settings.DATA_DIR.mkdir(parents=True, exist_ok=True)
 

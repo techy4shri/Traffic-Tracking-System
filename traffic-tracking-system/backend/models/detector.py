@@ -116,7 +116,7 @@ class TrafficAnalyzer:
             if confidence < settings.OCR_CONFIDENCE_THRESHOLD:
                 continue
             
-            # Clean and uppercase text
+
             clean_text = ''.join(c for c in text.upper() if c.isalnum())
             
             # Filter by minimum length and regex pattern
@@ -131,7 +131,7 @@ class TrafficAnalyzer:
             ys = [p[1] for p in bbox_coords]
             x1, y1, x2, y2 = min(xs), min(ys), max(xs), max(ys)
             
-            # Optional: Filter plates that don't intersect with vehicles
+            # purely for extra smth but i feel like this could be useful
             if vehicle_boxes:
                 if not self._box_intersects_any(
                     (x1, y1, x2, y2),
