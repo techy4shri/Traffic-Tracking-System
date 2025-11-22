@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import FileUpload from './components/FileUpload/FileUpload'
-import Footer from './components/Footer/Footer'
-import Background from './components/Background/Background'
+import FileUpload from '@components/FileUpload/FileUpload'
+import Footer from '@components/Footer/Footer'
+import Background from '@components/Background/Background'
 //import GithubButton from './components/FloatingIcons/GithubButton'
-import type { ProcessedResult } from './types/common'
+import type { ProcessedResult } from '@shared-types/common'
+import NavHeader from '@components/NavHeader/NavHeader'
 import './App.css'
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
 
   return (
     <div className="app-container">
+      <NavHeader />
       {!isProcessing && <Background />}
-      {/* <GithubButton /> */}
       <main className="main-content">
         <h1 className="title">Traffic Tracking System</h1>
         <FileUpload onProcessed={setResult} />
